@@ -1,0 +1,13 @@
+ SELECT c.region, c.name, c.code
+FROM countrylanguage cl, country c
+WHERE language = 'Italian'
+AND cl.countrycode = c.code
+AND c.region = 'Southern Europe'
+AND 1 = (SELECT COUNT(language)
+FROM countrylanguage WHERE countrycode = c.code);
+     region      |             name              | code 
+-----------------+-------------------------------+------
+ Southern Europe | San Marino                    | SMR
+ Southern Europe | Holy See (Vatican City State) | VAT
+(2 rows) 
+ there was no chance of me figuring this one out lol 
